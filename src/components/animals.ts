@@ -1,10 +1,20 @@
 import { AnimalProps } from "./Animal";
 
-export const tigerList: string[] = [
-    'Assia', "Russia"
+export const tigerList = [
+    {
+      country: 'Asien'
+    },
+    {
+      country: 'Ryssland'
+    }
   ] 
-  export const elephantList: string[] = [
-    'Assia', "Africa"
+ export const elephantList = [
+    {
+      country: 'Asien'
+    },
+    {
+      country: 'Afrika'
+    }
   ] 
 
   export const math = (numberOne: number, numberTwo: number) => {
@@ -16,6 +26,6 @@ export const tigerList: string[] = [
   }
 
   function setAnimal (animal: any) {
-    
+
   }
   

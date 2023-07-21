@@ -12,7 +12,9 @@ interface AnimalProps {
   classNameLocatedAt: string;
   imgSrc: string;
   title: string;
-  animalList: string[];
+  animalList: {
+    country: string;
+}[]
 }
 
 function App() {
@@ -53,12 +55,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         {
-          something.map((x) => (
+          something.map((x: AnimalProps) => (
             <Animal animalList={x.animalList} animalLocatedAt={x.animalLocatedAt} className={x.className} classNameLocatedAt={x.classNameLocatedAt} imgSrc={x.imgSrc} title={x.title}/>
           ))
         }
         <PageButton buttonTitle='Tryck på mig' className='knapp' onClick={() => setShow(!show)} />
-        <PageButton buttonTitle='Detta är number två' className='knappTwo' onClick={() => setShow(!show)} />
         { show &&
         <div>Jag visas ibland</div>
         }

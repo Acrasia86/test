@@ -4,7 +4,9 @@ export interface AnimalProps {
     imgSrc: string;
     classNameLocatedAt: string;
     animalLocatedAt: string;
-    animalList: string[];
+    animalList: {
+        country: string;
+    }[]
 }
 
 const Animal = ({ className, title, imgSrc, classNameLocatedAt, animalLocatedAt, animalList} :AnimalProps) => {
@@ -13,7 +15,14 @@ const Animal = ({ className, title, imgSrc, classNameLocatedAt, animalLocatedAt,
         <h1 className={className}>{title}</h1>
         <img src={imgSrc}/>
         <div className={classNameLocatedAt}>{animalLocatedAt}</div>
-        <div>{animalList}</div>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+        {
+            animalList.map((x) => (
+                <div>{x.country}</div>
+            ))
+        }
+       
+        </div>
     </div>
     )
 }
