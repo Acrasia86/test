@@ -4,6 +4,7 @@ import Animal from './components/Animal';
 import { animalTest, elephantList, math, tigerList } from './components/animals';
 import elephant from './pictures/elephant.jpg';
 import tiger from './pictures/tiger.jpg';
+import PageButton from './components/PageButton';
 
 interface AnimalProps {
   animalLocatedAt: string;
@@ -17,6 +18,7 @@ interface AnimalProps {
 function App() {
 
   const [something, setSomething] = useState<AnimalProps[]>([]);
+  const [show, setShow] = useState<boolean>(false);
 
   const animals: AnimalProps[] = [
     {
@@ -43,6 +45,10 @@ function App() {
     animalTest(setSomething, animals);
   }, [])
 
+  const click = () => {
+    console.log('clicked');
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -51,7 +57,11 @@ function App() {
             <Animal animalList={x.animalList} animalLocatedAt={x.animalLocatedAt} className={x.className} classNameLocatedAt={x.classNameLocatedAt} imgSrc={x.imgSrc} title={x.title}/>
           ))
         }
-        <div>{math(3, 2)}</div>
+        <PageButton buttonTitle='Tryck på mig' className='knapp' onClick={() => setShow(!show)} />
+        <PageButton buttonTitle='Detta är number två' className='knappTwo' onClick={() => setShow(!show)} />
+        { show &&
+        <div>Jag visas ibland</div>
+        }
       </header>
     </div>
   );

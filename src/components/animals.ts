@@ -14,4 +14,8 @@ export const tigerList: string[] = [
   export const animalTest = (setAnimal: (animal: any) => void, data: AnimalProps[]) => {
       return setAnimal(data);
   }
+
+  function setAnimal (animal: any) {
+    
+  }
   
