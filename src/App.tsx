@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Animal from './components/Animal';
-import { elephantList, tigerList } from './components/animals';
+import { elephantList, math, tigerList } from './components/animals';
 import elephant from './pictures/elephant.jpg';
 import tiger from './pictures/tiger.jpg';
 
@@ -14,6 +15,8 @@ interface AnimalProps {
 }
 
 function App() {
+
+  const [something, setSomething] = useState<AnimalProps[]>([]);
 
   const animals: AnimalProps[] = [
     {
@@ -36,14 +39,19 @@ function App() {
     }
   ]
 
+  useEffect(() => {
+    setSomething(animals);
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
         {
-          animals.map((x) => (
+          something.map((x) => (
             <Animal animalList={x.animalList} animalLocatedAt={x.animalLocatedAt} className={x.className} classNameLocatedAt={x.classNameLocatedAt} imgSrc={x.imgSrc} title={x.title}/>
           ))
         }
+        <div>{math(3, 2)}</div>
       </header>
     </div>
   );
