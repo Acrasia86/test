@@ -1,4 +1,4 @@
-interface AnimalProps {
+export interface AnimalProps {
     className: string;
     title: string;
     imgSrc: string;

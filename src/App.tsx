@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Animal from './components/Animal';
-import { elephantList, math, tigerList } from './components/animals';
+import { animalTest, elephantList, math, tigerList } from './components/animals';
 import elephant from './pictures/elephant.jpg';
 import tiger from './pictures/tiger.jpg';
 
@@ -40,7 +40,7 @@ function App() {
   ]
 
   useEffect(() => {
-    setSomething(animals);
+    animalTest(setSomething, animals);
   }, [])
 
   return (
